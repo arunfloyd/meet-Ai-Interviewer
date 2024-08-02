@@ -5,6 +5,7 @@ const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
   const textToSpeech = (text) => {
     if ("speechSynthesis" in window) {
       const speech = new SpeechSynthesisUtterance();
+      //Here we can adjust the audio settings
       speech.text = text;
       speech.volume = 1; // 0 - 1 range
       speech.rate = 1; // 0.1 - 10 range
