@@ -18,6 +18,7 @@ import { MockInterview } from "@/utils/schema";
 import { v4 as uuidv4 } from "uuid";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const AddNewInterview = () => {
   const [openDailog, setOpenDailog] = useState(false);
@@ -26,6 +27,7 @@ const AddNewInterview = () => {
   const [jobExperience, setJobExperience] = useState();
   const [loading, setLoading] = useState(false);
   const [jsonResponse, setJsonResponse] = useState([]);
+  const router = useRouter();
   const { user } = useUser();
 
   const onSubmit = async (e) => {
@@ -50,7 +52,7 @@ const AddNewInterview = () => {
       .replace("```json", "")
       .replace("```", "");
 
-    console.log(JSON.parse(MockJsonResponse));
+    // console.log(JSON.parse(MockJsonResponse));
     setJsonResponse(MockJsonResponse);
 
     if (MockJsonResponse) {
@@ -67,12 +69,14 @@ const AddNewInterview = () => {
         })
         .returning({ mockId: MockInterview.mockId });
       console.log("12", response);
+      if (response) {
+        setOpenDailog(false);
+        router.push("/dashboard/interview/" + response[0]?.mockId);
+      }
     } else {
       console.log("ERROR");
     }
-    if (response) {
-      setOpenDailog(false);
-    }
+
     setLoading(false);
   };
 
