@@ -9,7 +9,7 @@ const QuestionSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
       speech.text = text;
       speech.volume = 1; // 0 - 1 range
       speech.rate = 1; // 0.1 - 10 range
-      speech.pitch = 1.1; // 0 - 2 range
+      speech.pitch = 1; // 0 - 2 range
       window.speechSynthesis.speak(speech);
     } else {
       alert("Sorry , Your browser does not support this feature");
