@@ -74,7 +74,7 @@ const Feedback = ({ params }) => {
                       <strong>Correct Answer : </strong> {item.correctAns}
                     </h2>
                     <h2 className="p-2 border rounded-lg bg-blue-50 text-sm text-blue-900">
-                      <strong>Feedback : </strong> {item.Feedback}
+                      <strong>Feedback : </strong> {item.feedback}
                     </h2>
                   </div>
                 </CollapsibleContent>
