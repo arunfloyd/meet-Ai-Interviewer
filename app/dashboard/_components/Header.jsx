@@ -5,12 +5,17 @@ import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
 const Header = () => {
-  const path = usePathname(); 
-  
+  const path = usePathname();
+
   useEffect(() => {}, []);
   return (
-    <div className="flex p-4 items-center justify-between bg-secondary shadow-lg">
-      <Image src={"/logo.svg"} width={160} height={100} alt="logo" />
+    <div className="flex p-2 items-center justify-between bg-secondary shadow-lg">
+      <div className="flex flex-col items-center">
+        <Image src={"/logo.svg"} width={120} height={60} alt="logo" />
+        <h2 className="text-md font-semibold text-primary">
+          Meet AI Interviewer
+        </h2>
+      </div>
       <ul className="hidden md:flex gap-6">
         <li
           className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
@@ -19,29 +24,22 @@ const Header = () => {
         >
           Dashboard
         </li>
-        <li
-          className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-            path == "/questions" && "text-primary font-bold"
-          }`}
-        >
-          Questions
-        </li>
-        <li
-          className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-            path == "/upgrade" && "text-primary font-bold"
-          }`}
-        >
-          Upgrade
-        </li>
+
         <li
           className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
             path == "/howit" && "text-primary font-bold"
           }`}
         >
-          How it Works ?{" "}
+          How it Works ?
         </li>
       </ul>
-      <UserButton />
+      <UserButton
+        appearance={{
+          elements: {
+            avatarBox: "h-12 w-12",
+          },
+        }}
+      />
     </div>
   );
 };

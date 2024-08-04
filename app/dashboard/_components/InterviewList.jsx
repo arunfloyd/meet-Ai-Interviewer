@@ -24,13 +24,16 @@ const InterviewList = () => {
   }, [user]);
 
   return (
-    <div>
-      <h2 className="font-medium text-xl">Previous Mock Interview</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {interviewList &&
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <h2 className="font-semibold text-2xl text-gray-800 mb-6 border-b pb-3">Previous Mock Interviews</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {interviewList && interviewList.length > 0 ? (
           interviewList.map((interview, index) => (
             <InterviewItemCard interview={interview} key={index} />
-          ))}
+          ))
+        ) : (
+          <p className="text-gray-500 col-span-full text-center py-8">No previous interviews found.</p>
+        )}
       </div>
     </div>
   );

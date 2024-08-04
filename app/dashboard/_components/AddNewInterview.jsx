@@ -81,67 +81,81 @@ const AddNewInterview = () => {
   };
 
   return (
-    <div>
+    <div className="p-6">
       <div
-        className="p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all "
+        className="p-12 border-2 border-dashed border-primary/50 rounded-xl bg-secondary hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-300 ease-in-out"
         onClick={() => setOpenDailog(true)}
       >
-        <h2 className="font-bold text-lg text-center"> + Add</h2>
+        <h2 className="font-bold text-2xl text-center text-primary">
+          + Add New Interview
+        </h2>
       </div>
       <Dialog open={openDailog}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl">
-              Tell us more about your job interviewing
+            <DialogTitle className="text-3xl font-bold text-primary mb-4">
+              Tell us more about your job interview
             </DialogTitle>
             <DialogDescription>
-              <form onSubmit={onSubmit}>
-                <div>
-                  <h2>
-                    Add Details about your Job Position/Role ,Job description &
+              <form onSubmit={onSubmit} className="space-y-6">
+                <div className="bg-secondary/30  rounded-lg">
+                  <h2 className="text-md font-semibold mb-4">
+                    Add details about your Job Position/Role, Job description &
                     Years of Experience
                   </h2>
-                  <div className="mt-7 my-3">
-                    <label>Job Position/Role</label>
-                    <Input
-                      placeholder="Ex. Full Stack Developer"
-                      required
-                      onChange={(e) => setJobPosition(e.target.value)}
-                    />
-                  </div>
-                  <div className="my-3">
-                    <label>Job Description</label>
-                    <Textarea
-                      placeholder="Ex. React,NodeJS,ExpressJS,MongoDB Etc..."
-                      onChange={(e) => setJobDesc(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="my-3">
-                    <label>Years of Experience</label>
-                    <Input
-                      placeholder="Ex. 5 "
-                      type="number"
-                      max="50"
-                      required
-                      onChange={(e) => setJobExperience(e.target.value)}
-                    />
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-1">
+                        Job Position / Role
+                      </label>
+                      <Input
+                        placeholder="Eg:- Full Stack Developer"
+                        required
+                        onChange={(e) => setJobPosition(e.target.value)}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">
+                        Job Description
+                      </label>
+                      <Textarea
+                        placeholder="Eg:- React, NodeJS, ExpressJS, MongoDB, etc..."
+                        onChange={(e) => setJobDesc(e.target.value)}
+                        required
+                        className="w-full min-h-[100px]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">
+                        Years of Experience
+                      </label>
+                      <Input
+                        placeholder="Eg:- 5"
+                        type="number"
+                        max="50"
+                        required
+                        onChange={(e) => setJobExperience(e.target.value)}
+                        className="w-full"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-5 justify-end">
+                <div className="flex gap-5 justify-end pt-4">
                   <Button
                     type="button"
-                    variant="ghost"
+                    variant="outline"
                     onClick={() => setOpenDailog(false)}
+                    className="px-6"
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" disable={loading}>
+                  <Button type="submit" disabled={loading} className="px-6">
                     {loading ? (
-                      <>
+                      <div className="flex items-center space-x-2">
                         <LoaderCircle className="animate-spin" />
-                        Generating Questions
-                      </>
+                        <span>Generating Questions</span>
+                      </div>
                     ) : (
                       "Start Interview"
                     )}
