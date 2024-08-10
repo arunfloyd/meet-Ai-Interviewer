@@ -60,12 +60,12 @@ export default function Page() {
               </a>
 
               <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Welcome to Squid 🦑
+              Welcome to Meet AI Interviewer 🦑
               </h1>
 
               <p class="mt-4 leading-relaxed text-gray-500">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
+              Double your chances of landing that job offer with our AI-powered
+              interview preparation
               </p>
             </div>
 
