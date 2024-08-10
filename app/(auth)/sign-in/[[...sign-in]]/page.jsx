@@ -32,8 +32,8 @@ export default function Page() {
             </h2>
 
             <p class="mt-4 leading-relaxed text-white/90">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              nam dolorum aliquam, quibusdam aperiam voluptatum.
+              Double your chances of landing that job offer with our AI-powered
+              interview preparation
             </p>
           </div>
         </section>

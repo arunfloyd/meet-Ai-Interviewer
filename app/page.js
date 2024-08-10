@@ -6,7 +6,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative h-screen overflow-hidden">
-      <Header />
       <Image
         src={"/Meetai1.png"}
         layout="fill"

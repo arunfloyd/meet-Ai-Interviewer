@@ -10,6 +10,7 @@ import { useUser } from "@clerk/nextjs";
 import { db } from "@/utils/db";
 import { UserAnswer } from "@/utils/schema";
 import moment from "moment";
+import useRecordStore from "@/store/store";
 
 const RecordAnswerSection = ({
   mockInterviewQuestion,
@@ -52,6 +53,7 @@ const RecordAnswerSection = ({
   const StartStopRecording = async () => {
     if (isRecording) {
       stopSpeechToText();
+      useRecordStore.getState().startRecording()
     } else {
       startSpeechToText();
     }

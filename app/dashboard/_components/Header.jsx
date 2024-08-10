@@ -3,6 +3,7 @@ import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const path = usePathname();
@@ -19,10 +20,10 @@ const Header = () => {
       <ul className="hidden md:flex gap-6">
         <li
           className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
-            path == "/dashboard" && "text-primary font-bold"
+            path == "/dashboard" ? "text-primary font-bold" : ""
           }`}
         >
-          Dashboard
+          <Link href="/dashboard">Dashboard</Link>
         </li>
 
         <li
@@ -30,7 +31,14 @@ const Header = () => {
             path == "/howit" && "text-primary font-bold"
           }`}
         >
-          How it Works ?
+          <Link href="/dashboard">How it Works ?</Link>
+        </li>
+        <li
+          className={`hover:text-primary hover:font-bold transition-all cursor-pointer ${
+            path == "/howit" && "text-primary font-bold"
+          }`}
+        >
+          <Link href="/dashboard">About Us </Link>
         </li>
       </ul>
       <UserButton
